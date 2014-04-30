@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :memberships
   has_many :projects, through: :memberships
+
+  has_many :instrument_proficiencies
+  has_many :instruments, through: :instrument_proficiencies
+
+  belongs_to :primary_instrument, class_name: "Instrument"
+
 end

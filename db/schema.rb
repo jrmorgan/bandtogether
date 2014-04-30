@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327020733) do
+ActiveRecord::Schema.define(version: 20140402020807) do
 
   create_table "instrument_proficiencies", force: true do |t|
     t.integer  "years_of_experience"
@@ -75,9 +75,11 @@ ActiveRecord::Schema.define(version: 20140327020733) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+    t.integer  "primary_instrument_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["primary_instrument_id"], name: "index_users_on_primary_instrument_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
