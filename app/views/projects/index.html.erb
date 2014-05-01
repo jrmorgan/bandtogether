@@ -1,0 +1,12 @@
+<h1>Projects</h1>
+
+<% @projects.each do |project| %>
+  <div>
+     <h3><%= link_to project.name, project %>&nbsp;</h3> 
+     <% if project.owner == current_user && @user == nil do %>
+     	<%= link_to "Delete Project", project, method: :delete, confirm: "Are you sure?" %>
+     <% end %>
+   </div>
+ <% end %>
+
+<%= link_to "Create New Project", new_project_path %>

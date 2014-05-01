@@ -1,0 +1,19 @@
+<% if !@user then %>
+<h2> Could not find user of that username </h2>
+<% else %>
+
+<h2><%= @user.first_name %> <%= @user.last_name[0] %>.</h2>
+<% if current_user == @user %>
+	<%= link_to 'Edit Profile', edit_user_registration_path %>
+<% end %>
+
+<h3> Primary Instrument: </h3> <%= @user.primary_instrument.name %>
+
+<h3> Projects: </h3>
+<% @projects.each do |project| %>
+  <div>
+     <%= link_to project.name, project %>&nbsp;
+   </div>
+ <% end %>
+
+ <% end %>
